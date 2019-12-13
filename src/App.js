@@ -6,16 +6,17 @@ import NavigationItems from './components/Navigation/NavigationItems/NavigationI
 import Genres from './containers/Genres';
 
 function App() {
+  console.log(styles);
   return (
-    <div className="Container">
-      <div className="Logo">
+    <div className={styles.Container}>
+      <div className={styles.Logo}>
         <Logo />
       </div>
-      <aside className="Sidebar">
+      <aside className={styles.Sidebar}>
         <NavigationItems />
         <Genres />
       </aside>
-      <main className="Main">
+      <main className={styles.Main}>
 
       </main>
     </div>
