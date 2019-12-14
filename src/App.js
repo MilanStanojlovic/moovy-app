@@ -6,7 +6,7 @@ import NavigationItems from './components/Navigation/NavigationItems/NavigationI
 import Genres from './containers/Genres';
 
 function App() {
-  console.log(styles);
+  //console.log(styles);
   return (
     <div className={styles.Container}>
       <div className={styles.Logo}>
@@ -17,7 +17,7 @@ function App() {
         <Genres />
       </aside>
       <main className={styles.Main}>
-
+        
       </main>
     </div>
   );
