@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-import Genre from '../components/Genre/Genre';
+import Genre from '../../components/Genre/Genre';
 
 class Genres extends Component {
 

@@ -1,0 +1,15 @@
+.Card{
+  background-color: teal;
+  border-radius: 5px;
+  /* border: 1px solid white; */
+}
+
+.ImageContainer img {
+  max-width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.CardDescription{
+  padding: 0 10px 0 10px;
+}

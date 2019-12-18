@@ -3,7 +3,8 @@ import styles from './App.modules.css';
 
 import Logo from './components/Logo/Logo';
 import NavigationItems from './components/Navigation/NavigationItems/NavigationItems';
-import Genres from './containers/Genres';
+import Genres from './containers/Genres/Genres';
+import MovieList from './containers/MovieList/MovieList';
 
 function App() {
   //console.log(styles);
@@ -17,7 +18,7 @@ function App() {
         <Genres />
       </aside>
       <main className={styles.Main}>
-        
+        <MovieList />
       </main>
     </div>
   );
