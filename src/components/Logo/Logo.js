@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const logo = props => {
   return (
     <div>
-      <h1>Moovy</h1>
+      <Link to="/">
+        <h1>Moovy</h1>
+      </Link>
     </div>
   );
 }
