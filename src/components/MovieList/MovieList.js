@@ -20,7 +20,7 @@ class MovieList extends Component {
 
       // console.log(response.data.results);
       const movies = response.data.results.slice(0, 12);
-      console.log(movies);
+      //console.log(movies);
       this.setState({ movieList: movies })
     })
 
@@ -30,7 +30,7 @@ class MovieList extends Component {
 
     const movies = this.state.movieList.map(movie => {
       return (
-        <Link to={`/movie/${movie.id}`} key={movie.id}>
+        <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.Link}>
           <MovieCard
             image={movie.poster_path}
             title={movie.title}

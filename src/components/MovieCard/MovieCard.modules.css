@@ -1,7 +1,7 @@
 .Card{
-  background-color: teal;
   border-radius: 5px;
   /* border: 1px solid white; */
+  transition: all 0.5s ease;
 }
 
 .ImageContainer img {
@@ -12,4 +12,20 @@
 
 .CardDescription{
   padding: 0 10px 0 10px;
+  min-height: 210px;
 }
+
+.CardDescription h2{
+  color: #ffffff;
+}
+
+.CardDescription h3, p {
+  color: #5B6471;
+}
+
+.Card:hover {
+  background-color: #141C25;
+  transform: translatey(-10px);
+  box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.8);
+}
+

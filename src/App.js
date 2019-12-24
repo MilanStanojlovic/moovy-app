@@ -4,8 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import Logo from './components/Logo/Logo';
 import NavigationItems from './components/Navigation/NavigationItems/NavigationItems';
-import Genres from './containers/Genres/Genres';
-import MovieList from './containers/MovieList/MovieList';
+import Genres from './components/Genres/Genres';
+import MovieList from './components/MovieList/MovieList';
 import Movie from './components/Movie/Movie';
 
 function App() {
