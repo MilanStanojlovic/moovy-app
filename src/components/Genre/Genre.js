@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './Genre.module.css';
 
 const genre = props => {
   return (
-    <li>
-      <a href="/">{props.genreName}</a>
+    <li className={styles.ListItem}>
+      <a href="/" className={styles.Link}>{props.genreName}</a>
     </li>
   )
 }

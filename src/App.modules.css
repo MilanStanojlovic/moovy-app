@@ -6,13 +6,13 @@
 }
 
 .Logo{
-  background-color: blanchedalmond;
+  background-color: #141C25;
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
 .Sidebar{
-  background-color: blueviolet;
+  background-color: #141C25;
   grid-column: 1 /2;
   grid-row: 2/3;
 }
@@ -21,4 +21,5 @@
   background-color: #0D171F;
   grid-column: 2 / 3;
   grid-row: 2/3;
+  min-height: calc(100vh - 75px);
 }

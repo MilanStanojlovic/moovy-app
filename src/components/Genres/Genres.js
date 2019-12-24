@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import styles from './Genres.modules.css';
 
 import Genre from '../../components/Genre/Genre';
 
@@ -27,9 +28,9 @@ class Genres extends Component {
 
     return (
       <div>
-        <h2>Genres</h2>
+        <h2 className={styles.Heading}>Genres</h2>
         <nav>
-          <ul>
+          <ul className={styles.List}>
             {genres}
           </ul>
         </nav>

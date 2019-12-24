@@ -1,0 +1,31 @@
+.MovieContainer{
+  display: flex;
+  height: calc(100vh - 75px);
+  justify-content: center;
+  align-items: center;
+}
+
+.ImageWrapper{
+  max-width: 750px;
+  margin-left: 50px;
+}
+
+.ImageWrapper img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.MovieDescription{
+  flex-shrink: 4;
+  margin-left: 50px;
+  margin-right: 150px;
+}
+
+.Heading {
+  color: #ffffff;
+}
+
+.Rating, .Overview{
+  color: #5B6471;
+}
+

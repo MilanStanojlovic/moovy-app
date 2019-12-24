@@ -4,14 +4,16 @@
 }
 
 .Link{
-  color: #858C9A;
+  color: #FFF;
+  font-weight: 500;
   display: block;
   padding: 7px;
   padding-left: 40px;
 }
 
 .Link:hover{
+  color: #21CFF6;
   transition: ease 0.3s all;
-  border-left: 3px solid aqua;
+  border-left: 3px solid #21CFF6;
   background-color: rgb(29, 40, 53);
 }

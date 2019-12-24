@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Logo.modules.css';
 
 const logo = props => {
   return (
-    <div>
-      <Link to="/">
-        <h1>Moovy</h1>
+    <div className={styles.LogoContainer}>
+      <Link className={styles.Logo} to="/">
+        moovy
       </Link>
     </div>
   );

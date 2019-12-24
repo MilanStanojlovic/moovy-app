@@ -1,0 +1,13 @@
+.LogoContainer{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Logo{
+  color: #F8FAFB;
+  text-align: center;
+  font-family: 'Oleo Script', cursive;
+  font-size: 45px;
+}
