@@ -23,7 +23,7 @@ class Genres extends Component {
 
   render() {
     const genres = this.state.genres.map(genre=> {
-      return <Genre key={genre.id} genreName={genre.name}/>
+      return <Genre key={genre.id} location={genre.id} genreName={genre.name}/>
     });
 
     return (
