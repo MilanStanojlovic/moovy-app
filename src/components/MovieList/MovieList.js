@@ -23,21 +23,48 @@ class MovieList extends Component {
       //console.log(movies);
       this.setState({ movieList: movies })
     })
+    console.log('[DidMount]', this.props);
+  }
 
+  getMoviesByGenreId = (apiKey, genreId) => {
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_genres=${this.props.match.params.id}`;
+    axios.get(url).then(response => {
+      const movies = response.data.results.slice(0, 12);
+      console.log(movies);
+      return movies;
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('[DidUpdate]', this.props);
+    const apiKey = 'e826d7cae51a970759bd99a85655ac2f';
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_genres=${this.props.match.params.id}`;
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      console.log(this.props.match.params.id);
+      // axios.get(url).then(response => {
+      //   const movies = response.data.results.slice(0, 12);
+      //   console.log(movies);
+      //   this.setState({ movieList: movies });
+      // })
+      
+    }
   }
 
   render() {
+    let movies = <h1 style={{ color: 'white' }}>LOADING</h1>
+    if (this.state.movieList) {
+      movies = this.state.movieList.map(movie => {
+        return (
+          <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.Link}>
+            <MovieCard
+              image={movie.poster_path}
+              title={movie.title}
+              rating={movie.vote_average}
+              description={movie.overview.slice(0, 75)} />
+          </Link>)
+      })
+    }
 
-    const movies = this.state.movieList.map(movie => {
-      return (
-        <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.Link}>
-          <MovieCard
-            image={movie.poster_path}
-            title={movie.title}
-            rating={movie.vote_average}
-            description={movie.overview.slice(0, 75)} />
-        </Link>)
-    })
     return (
       <div className={styles.Container}>
         <h2 className={styles.PageHeading}>Movies</h2>
