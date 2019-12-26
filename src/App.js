@@ -25,6 +25,7 @@ function App() {
           <Route path="/movie/:id" component={Movie} />
           <Route path="/movies" exact component={MovieList} />
           <Route path="/movies/genre/:id" component={MovieList} />
+          <Route path="/movies/:search" component={MovieList} />
         </Switch>
       </main>
     </div>

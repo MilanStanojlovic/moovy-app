@@ -7,9 +7,9 @@ const navigationItems = props => {
     <nav>
       <h2 className={styles.Heading}>Browse moovy</h2>
       <ul className={styles.List}>
-        <NavigationItem>Movies</NavigationItem>
-        <NavigationItem>Series</NavigationItem>
-        <NavigationItem>Discover</NavigationItem>
+        <NavigationItem search='now_playing'>Now Playing</NavigationItem>
+        <NavigationItem search='popular'>Popular</NavigationItem>
+        <NavigationItem search='top_rated'>Top Rated</NavigationItem>
       </ul>
     </nav>
   )

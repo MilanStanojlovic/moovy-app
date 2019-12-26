@@ -25,7 +25,7 @@ class MovieList extends Component {
     })
     console.log('[DidMount]', this.props);
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_genres=${this.props.match.params.id}`;
-    if(this.props.match.params.id){
+    if (this.props.match.params.id) {
       axios.get(url).then(response => {
         const movies = response.data.results.slice(0, 12);
         console.log(movies);
@@ -54,7 +54,7 @@ class MovieList extends Component {
     console.log('[DidUpdate]', this.props);
     const apiKey = 'e826d7cae51a970759bd99a85655ac2f';
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_genres=${this.props.match.params.id}`;
-    
+
     if (this.props.match.params.id !== prevProps.match.params.id) {
       console.log(this.props.match.params.id);
       axios.get(url).then(response => {
@@ -65,9 +65,21 @@ class MovieList extends Component {
       // const moviesByGenre = this.getMoviesByGenreId(apiKey, this.props.match.params.id);
       // console.log(moviesByGenre);
     }
+    if (this.props.match.params.search) {
+
+      if (this.props.match.params.search !== prevProps.match.params.search) {
+        let url = `https://api.themoviedb.org/3/movie/${this.props.match.params.search}?api_key=${apiKey}&language=en-US&page=1`;
+        console.log(this.props.match.params.search);
+        axios.get(url).then(response => {
+          const movies = response.data.results.slice(0, 12);
+          console.log(movies);
+          this.setState({ movieList: movies });
+        });
+      }
+    }
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     console.log('[WillUnmount]');
   }
 
