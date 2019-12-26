@@ -5,7 +5,7 @@ import styles from './Logo.modules.css';
 const logo = props => {
   return (
     <div className={styles.LogoContainer}>
-      <Link className={styles.Logo} to="/">
+      <Link className={styles.Logo} to="/movies">
         moovy
       </Link>
     </div>

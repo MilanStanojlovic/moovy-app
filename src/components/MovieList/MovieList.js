@@ -24,6 +24,14 @@ class MovieList extends Component {
       this.setState({ movieList: movies })
     })
     console.log('[DidMount]', this.props);
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_genres=${this.props.match.params.id}`;
+    if(this.props.match.params.id){
+      axios.get(url).then(response => {
+        const movies = response.data.results.slice(0, 12);
+        console.log(movies);
+        this.setState({ movieList: movies });
+      });
+    }
   }
 
   // getMoviesByGenreId = (apiKey, genreId) => {
@@ -57,6 +65,10 @@ class MovieList extends Component {
       // const moviesByGenre = this.getMoviesByGenreId(apiKey, this.props.match.params.id);
       // console.log(moviesByGenre);
     }
+  }
+
+  componentWillUnmount(){
+    console.log('[WillUnmount]');
   }
 
   render() {
