@@ -23,7 +23,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={MovieList} />
           <Route path="/movie/:id" component={Movie} />
-          <Route path="/genre/:id" component={MovieList}/>
+          <Route path="/movies" exact component={MovieList} />
+          <Route path="/movies/genre/:id" component={MovieList} />
         </Switch>
       </main>
     </div>
