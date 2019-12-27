@@ -1,12 +1,18 @@
+.LoaderWrapper{
+  height: calc(100vh - 75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .Loader {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
 }
 .Loader div {
   position: absolute;
-  border: 4px solid #fff;
+  border: 4px solid #21CFF6;
   opacity: 1;
   border-radius: 50%;
   animation: Loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -16,8 +22,8 @@
 }
 @keyframes Loader {
   0% {
-    top: 36px;
-    left: 36px;
+    top: 50px;
+    left: 50px;
     width: 0;
     height: 0;
     opacity: 1;
@@ -25,8 +31,8 @@
   100% {
     top: 0px;
     left: 0px;
-    width: 72px;
-    height: 72px;
+    width: 100px;
+    height: 100px;
     opacity: 0;
   }
 }

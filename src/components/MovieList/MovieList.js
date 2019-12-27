@@ -4,42 +4,47 @@ import styles from './MovieList.modules.css';
 import { Link } from 'react-router-dom';
 
 import MovieCard from '../../components/MovieCard/MovieCard';
+import Loader from '../Loader/Loader';
 
 
 class MovieList extends Component {
 
   state = {
     movieList: [],
+    loading: false
   }
 
 
   getMovies = () => {
+    this.setState({loading: true});
     const apiKey = 'e826d7cae51a970759bd99a85655ac2f';
     const nowPlayingMovieList = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
     axios.get(nowPlayingMovieList).then(response => {
       // console.log(response.data.results);
       const movies = response.data.results.slice(0, 12);
       //console.log(movies);
-      this.setState({ movieList: movies })
+      this.setState({ movieList: movies, loading: false })
     })
   }
 
   getMoviesByGenre = (apiKey, genreId) => {
+    this.setState({loading: true});
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_genres=${genreId}`;
     axios.get(url).then(response => {
       const movies = response.data.results.slice(0, 12);
       //console.log(movies);
-      this.setState({ movieList: movies });
+      this.setState({ movieList: movies, loading: false });
     });
   }
 
   getMoviesByPopularity = (apiKey, popularity) => {
+    this.setState({loading: true})
     let url = `https://api.themoviedb.org/3/movie/${popularity}?api_key=${apiKey}&language=en-US&page=1`;
     //console.log(this.props.match.params.search);
     axios.get(url).then(response => {
       const movies = response.data.results.slice(0, 12);
       //console.log(movies);
-      this.setState({ movieList: movies });
+      this.setState({ movieList: movies, loading:false });
     });
   }
 
@@ -75,8 +80,8 @@ class MovieList extends Component {
   }
 
   render() {
-    let movies = <h1 style={{ color: 'white' }}>LOADING</h1>
-    if (this.state.movieList) {
+    let movies = <Loader/>
+    if (!this.state.loading) {
       movies = this.state.movieList.map(movie => {
         return (
           <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.Link}>
