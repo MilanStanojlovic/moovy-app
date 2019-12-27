@@ -1,5 +1,4 @@
 .Container {
-  background-color: aqua;
   display: grid;
   grid-template-columns: 250px auto;
   grid-template-rows: 75px auto;
@@ -8,6 +7,12 @@
 .Logo{
   background-color: #141C25;
   grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.Top{
+  background-color: #0D171F;
+  grid-column: 2/3;
   grid-row: 1/2;
 }
 

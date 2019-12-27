@@ -15,6 +15,8 @@ function App() {
       <div className={styles.Logo}>
         <Logo />
       </div>
+      <div className={styles.Top}>
+      </div>
       <aside className={styles.Sidebar}>
         <NavigationItems />
         <Genres />
