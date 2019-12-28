@@ -7,6 +7,7 @@ import NavigationItems from './components/Navigation/NavigationItems/NavigationI
 import Genres from './components/Genres/Genres';
 import MovieList from './components/MovieList/MovieList';
 import Movie from './components/Movie/Movie';
+import Search from './components/Search/Search'
 
 function App() {
   //console.log(styles);
@@ -16,6 +17,7 @@ function App() {
         <Logo />
       </div>
       <div className={styles.Top}>
+        <Search/>
       </div>
       <aside className={styles.Sidebar}>
         <NavigationItems />
