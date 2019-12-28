@@ -1,0 +1,27 @@
+.ResultItem{
+  display: flex;
+  padding: 5px;
+}
+
+.ImageContainer{
+  height: 100px;
+}
+
+.ImageContainer img{
+  height: 100%;
+}
+
+.MovieInfo{
+  margin-left: 10px;
+}
+
+.Title{
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 100;
+}
+
+.Rating{
+  margin-top: 5px;
+}
