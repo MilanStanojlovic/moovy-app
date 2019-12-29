@@ -25,3 +25,7 @@
 .Rating{
   margin-top: 5px;
 }
+
+.ResultItem:hover{
+  background-color: rgb(41, 54, 70);
+}
