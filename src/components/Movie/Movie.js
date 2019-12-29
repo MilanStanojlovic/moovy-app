@@ -16,6 +16,18 @@ class Movie extends Component {
     })
   }
 
+  componentDidUpdate(prevProps){
+    console.log('[Did update]');
+    console.log(this.props);
+    const apiKey = 'e826d7cae51a970759bd99a85655ac2f'
+    const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${apiKey}&language=en-US`;
+    if(this.props.match.params.id !== prevProps.match.params.id){
+      axios.get(movieUrl).then(response => {
+        this.setState({ movie: response.data });
+      })
+    }
+  }
+
   render() {
     let movie = <h1 style={{ color: 'white' }}>Loading</h1>;
     if (this.state.movie) {
