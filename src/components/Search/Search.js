@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styles from './Search.modules.css';
+import { Link } from 'react-router-dom';
 
 import SearchResult from '../SearchResult/SearchResult';
 
@@ -8,6 +9,7 @@ class Search extends Component {
   state = {
     query: '',
     movieList: [],
+    visible: true,
   }
 
   handleQueryChange = (event) => {
@@ -15,13 +17,18 @@ class Search extends Component {
   }
 
   handleButtonClick = () => {
-    console.log('clicked');
+    //console.log('clicked');
     const { query } = this.state;
-    console.log(query);
+    this.setState({ visible: true });
+    //console.log(query);
 
     this.getMovies(query);
 
     this.setState({ query: '' });
+  }
+
+  handleLinkClick = (event) => {
+    this.setState({ visible: false });
   }
 
   getMovies = (query) => {
@@ -29,36 +36,40 @@ class Search extends Component {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
 
     axios.get(url).then(response => {
-      console.log(response);
+      //console.log(response);
       const movies = response.data.results.slice(0, 3);
-      this.setState({movieList: movies});
+      this.setState({ movieList: movies });
     }).catch(error => {
       console.log(error);
     })
   }
 
   render() {
-    const result =  this.state.movieList.map(movie => {
-      return <SearchResult key={movie.id} 
-      title={movie.title} 
-      image={movie.poster_path}
-      rating={movie.vote_average}/>
+    const result = this.state.movieList.map(movie => {
+      return <Link key={movie.id} 
+          to={`/movie/${movie.id}`} 
+          onClick={this.handleLinkClick}>
+        <SearchResult
+        title={movie.title}
+        image={movie.poster_path}
+        rating={movie.vote_average} />
+        </Link>
     })
     return (
-      
+
       <div className={styles.SearchWrapper}>
 
         <div className={styles.Search}>
-          <input className={styles.Input} 
-          type="text" 
-          onChange={this.handleQueryChange} 
-          value={this.state.query} 
-          placeholder="Enter moovy title..." />
-          <button className={styles.SearchButton} 
-          onClick={this.handleButtonClick} >Search</button>
+          <input className={styles.Input}
+            type="text"
+            onChange={this.handleQueryChange}
+            value={this.state.query}
+            placeholder="Enter moovy title..." />
+          <button className={styles.SearchButton}
+            onClick={this.handleButtonClick} >Search</button>
         </div>
         <div className={styles.SearchResults}>
-          {result}
+          {this.state.visible ? result : null}
         </div>
       </div>
 
