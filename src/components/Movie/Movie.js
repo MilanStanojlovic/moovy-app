@@ -1,35 +1,36 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styles from './Movie.modules.css';
+import Loader from '../Loader/Loader';
 
 class Movie extends Component {
   state = {
-    movie: null
+    movie: null,
+    loading: false
   }
 
-  componentDidMount() {
+  getMovie = (id) => {
+    this.setState({ loading: true });
     const apiKey = 'e826d7cae51a970759bd99a85655ac2f'
-    const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${apiKey}&language=en-US`;
+    const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
     axios.get(movieUrl).then(response => {
       // console.log(response.data);
-      this.setState({ movie: response.data });
+      this.setState({ movie: response.data, loading: false });
     })
   }
 
-  componentDidUpdate(prevProps){
-    console.log('[Did update]');
-    console.log(this.props);
-    const apiKey = 'e826d7cae51a970759bd99a85655ac2f'
-    const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${apiKey}&language=en-US`;
-    if(this.props.match.params.id !== prevProps.match.params.id){
-      axios.get(movieUrl).then(response => {
-        this.setState({ movie: response.data });
-      })
+  componentDidMount() {
+    this.getMovie(this.props.match.params.id)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.getMovie(this.props.match.params.id);
     }
   }
 
   render() {
-    let movie = <h1 style={{ color: 'white' }}>Loading</h1>;
+    let movie = <Loader/>
     if (this.state.movie) {
       movie = (
         <div className={styles.MovieContainer}>
