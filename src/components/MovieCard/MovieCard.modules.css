@@ -13,14 +13,16 @@
 .CardDescription{
   padding: 0 10px 0 10px;
   min-height: 210px;
+  margin-top: 15px;
 }
 
-.CardDescription h2{
+.Heading{
   color: #ffffff;
 }
 
-.CardDescription h3, p {
+.Rating, .Description{
   color: #5B6471;
+  margin-top: 15px;
 }
 
 .Card:hover {

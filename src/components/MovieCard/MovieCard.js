@@ -14,10 +14,9 @@ const MovieCard = (props) => {
         <img src={`https://image.tmdb.org/t/p/w500${props.image}`} alt={`movie poster for ${props.title}`}></img>
       </div>
       <div className={styles.CardDescription}>
-        <h2>{props.title}</h2>
-        <h3>Rating: {rating}/10</h3>
-        <p>{props.description}...
-        </p>
+        <h2 className={styles.Heading}>{props.title}</h2>
+        <h3 className={styles.Rating}>Rating: {rating}/10</h3>
+        <p className={styles.Description}>{props.description}...</p>
       </div>
     </div>
   )
