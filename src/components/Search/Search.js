@@ -9,11 +9,23 @@ class Search extends Component {
   state = {
     query: '',
     movieList: [],
-    visible: true,
+    visible: false,
   }
 
   handleQueryChange = (event) => {
     this.setState({ query: event.target.value });
+  }
+
+  searchResultsInvisible = () => {
+    window.addEventListener('click', event=>{
+      if(!this.node.contains(event.target)){
+        this.setState({visible: false})
+      }
+    })
+  }
+
+  componentDidMount(){
+    this.searchResultsInvisible();
   }
 
   handleButtonClick = () => {
@@ -57,7 +69,7 @@ class Search extends Component {
     })
     return (
 
-      <div className={styles.SearchWrapper}>
+      <div className={styles.SearchWrapper} ref={node => (this.node = node)}>
 
         <div className={styles.Search}>
           <input className={styles.Input}
