@@ -64,17 +64,28 @@
 
 @media(max-width: 800px){
  .MovieContainer{
-   margin-top: 0;
-   margin-left: 0;
+  margin: 0;
   grid-template-areas: 
   'image'
-  'description';
+  'image'
+  'description'
+  'description-1';
   grid-gap: 0;
-  padding: 10%;
+  padding: 0 10%;
  }
 
  .MovieDescription{
    padding-right: 0;
  }
+}
+
+@media(max-width: 650px){
+  .MovieContainer{
+    padding: 10px;
+  }
+
+  .GenreContainer{
+    flex-direction: column;
+  }
 }
 
