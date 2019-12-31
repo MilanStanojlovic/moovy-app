@@ -1,0 +1,11 @@
+.LinkButton{
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #5B6471;
+  margin: 5px;
+}
+
+.LinkButton:hover{
+  color:#21CFF6;
+  background-color: rgb(29, 40, 53);
+}

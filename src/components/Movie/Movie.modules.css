@@ -39,6 +39,12 @@
   margin-top: 20px;
 }
 
+.GenreContainer{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
 @media(max-width: 800px){
  .MovieContainer{
    margin-top: 0;
