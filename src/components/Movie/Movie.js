@@ -3,12 +3,27 @@ import axios from 'axios';
 import styles from './Movie.modules.css';
 import Loader from '../Loader/Loader';
 import GenreButton from '../GenreButton/GenreButton';
+import MovieCard from '../MovieCard/MovieCard';
 
 class Movie extends Component {
   state = {
     movie: null,
     loading: false,
-    genres: []
+    genres: [],
+    cast: [],
+  }
+
+  getCast = (id, apiKey) => {
+    this.setState({loading: true});
+    const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`;
+    axios.get(url).then(response => {
+      // console.log(response.data.cast);
+      let cast = response.data.cast.slice(0, 5);
+      console.log(cast);
+      this.setState({cast: cast, loading: false});
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   getMovie = (id) => {
@@ -21,7 +36,8 @@ class Movie extends Component {
       document.title = `Moovy - ${response.data.title}`;
     }).catch(error => {
       console.log(error);
-    })
+    });
+    this.getCast(id, apiKey);
   }
 
   componentDidMount() {
@@ -39,9 +55,13 @@ class Movie extends Component {
   }
 
   render() {
+    const actors = this.state.cast.map(actor => {
+      return <MovieCard key={actor.cast_id} title={actor.name} image={actor.profile_path} description={actor.character}/>
+    })
     const genres = this.state.genres.map(genre => {
       return <GenreButton key={genre.id} location={genre.id} genreName={genre.name} />
-    })
+    });
+
     let movie = <Loader />
     if (this.state.movie) {
       movie = (
@@ -59,7 +79,7 @@ class Movie extends Component {
             </div>
             <h2 className={styles.Rating}>Cast</h2>
             <div className={styles.CastContainer}>
-              
+              {actors}
             </div>
           </div>
         </div>
