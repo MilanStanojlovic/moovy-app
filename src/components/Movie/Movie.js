@@ -17,6 +17,8 @@ class Movie extends Component {
       // console.log(response.data);
       this.setState({ movie: response.data, loading: false });
       document.title = `Moovy - ${response.data.title}`;
+    }).catch(error=>{
+      console.log(error);
     })
   }
 

@@ -24,6 +24,8 @@ class MovieList extends Component {
       const movies = response.data.results.slice(0, 12);
       //console.log(movies);
       this.setState({ movieList: movies, loading: false })
+    }).catch(error=>{
+      console.log(error);
     })
   }
 

@@ -18,6 +18,8 @@ class Genres extends Component {
     axios.get(genreListUrl).then(response => {
       this.setState({genres: response.data.genres});
       // console.log(response.data.genres);
+    }).catch(error=>{
+      console.log(error);
     })
   }
 
