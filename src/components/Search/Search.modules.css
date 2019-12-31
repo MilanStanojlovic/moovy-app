@@ -36,3 +36,19 @@
   background-color: rgb(29, 40, 53);
 }
 
+@media(max-width: 800px){
+  .SearchWrapper{
+    top: 100px;
+  }
+  .Input{
+    width: 350px;
+  }
+}
+
+@media(max-width: 500px){
+  .Input{
+    width: 200px;
+  }
+}
+
+

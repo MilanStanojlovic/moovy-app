@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './App.modules.css';
 import { Switch, Route } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 import Logo from './components/Logo/Logo';
 import NavigationItems from './components/Navigation/NavigationItems/NavigationItems';
@@ -10,20 +12,33 @@ import Movie from './components/Movie/Movie';
 import Search from './components/Search/Search'
 
 function App() {
-  //console.log(styles);
+  const [ShowMenu, setShowMenu] = useState(true);
+
+  const handleMenuClick = () => {
+    setShowMenu(prevShowMenu => !prevShowMenu);
+  }
+  let attachedSidebarStyle = [styles.Sidebar];
+  let attachedMainStyle = [styles.Main];
+  if (!ShowMenu) {
+    attachedSidebarStyle = [styles.Sidebar, styles.Invisible];
+    attachedMainStyle = [styles.Main, styles.MainSpan]
+  }
+
+
   return (
     <div className={styles.Container}>
       <div className={styles.Logo}>
         <Logo />
+        <FontAwesomeIcon icon={faEllipsisH} onClick={handleMenuClick} size="2x" className={styles.Menu} />
       </div>
       <div className={styles.Top}>
-        <Search/>
+        <Search />
       </div>
-      <aside className={styles.Sidebar}>
+      <aside className={attachedSidebarStyle.join(' ')}>
         <NavigationItems />
         <Genres />
       </aside>
-      <main className={styles.Main}>
+      <main className={attachedMainStyle.join(' ')}>
         <Switch>
           <Route path="/" exact component={MovieList} />
           <Route path="/movie/:id" component={Movie} />

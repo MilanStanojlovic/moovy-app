@@ -16,6 +16,7 @@ class Movie extends Component {
     axios.get(movieUrl).then(response => {
       // console.log(response.data);
       this.setState({ movie: response.data, loading: false });
+      document.title = `Moovy - ${response.data.title}`;
     })
   }
 
@@ -29,6 +30,10 @@ class Movie extends Component {
     }
   }
 
+  componentWillUnmount(){
+    document.title = `Moovy - Browse Movies`;
+  }
+
   render() {
     let movie = <Loader/>
     if (this.state.movie) {
@@ -40,7 +45,7 @@ class Movie extends Component {
           <div className={styles.MovieDescription}>
             <h1 className={styles.Heading}>{this.state.movie.title}</h1>
             <h2 className={styles.Rating}>Rating: {this.state.movie.vote_average}/10</h2>
-            <p>Release Date: {this.state.movie.release_date}</p>
+            <p className={styles.ReleaseDate}>Release Date: {this.state.movie.release_date}</p>
             <p className={styles.Overview}>{this.state.movie.overview}</p>
           </div>
         </div>

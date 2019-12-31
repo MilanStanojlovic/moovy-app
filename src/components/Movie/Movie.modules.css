@@ -1,13 +1,15 @@
 .MovieContainer{
-  display: flex;
-  height: calc(100vh - 75px);
-  justify-content: center;
-  align-items: center;
+  margin-top: 75px;
+  margin-left: 30px;
+  display: grid;
+  grid-template-areas: 
+  'image description'
+  'image description';
+  grid-gap: 20px;
 }
 
 .ImageWrapper{
-  max-width: 750px;
-  margin-left: 50px;
+  grid-area: image;
 }
 
 .ImageWrapper img {
@@ -16,20 +18,40 @@
 }
 
 .MovieDescription{
-  flex-shrink: 4;
-  margin-left: 50px;
-  margin-right: 150px;
+  margin: 30px 0;
+  grid-area: description;
+  padding-right: 50px;
 }
 
 .Heading {
   color: #ffffff;
 }
 
-.Rating, .Overview{
+.Rating, .Overview, .ReleaseDate{
   color: #5B6471;
 }
 
-.Rating{
+.Rating, .Overview{
   margin-top: 10px;
+}
+
+.ReleaseDate{
+  margin-top: 20px;
+}
+
+@media(max-width: 800px){
+ .MovieContainer{
+   margin-top: 0;
+   margin-left: 0;
+  grid-template-areas: 
+  'image'
+  'description';
+  grid-gap: 0;
+  padding: 10%;
+ }
+
+ .MovieDescription{
+   padding-right: 0;
+ }
 }
 
