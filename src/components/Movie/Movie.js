@@ -14,13 +14,13 @@ class Movie extends Component {
   }
 
   getCast = (id, apiKey) => {
-    this.setState({loading: true});
+    this.setState({ loading: true });
     const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`;
     axios.get(url).then(response => {
       // console.log(response.data.cast);
       let cast = response.data.cast.slice(0, 5);
       // console.log(cast);
-      this.setState({cast: cast, loading: false});
+      this.setState({ cast: cast, loading: false });
     }).catch(error => {
       console.log(error);
     });
@@ -56,7 +56,7 @@ class Movie extends Component {
 
   render() {
     const actors = this.state.cast.map(actor => {
-      return <ActorCard key={actor.cast_id} name={actor.name} image={actor.profile_path} role={actor.character}/>
+      return <ActorCard key={actor.cast_id} name={actor.name} image={actor.profile_path} role={actor.character} />
     })
     const genres = this.state.genres.map(genre => {
       return <GenreButton key={genre.id} location={genre.id} genreName={genre.name} />
@@ -77,6 +77,8 @@ class Movie extends Component {
             <div className={styles.GenreContainer}>
               {genres}
             </div>
+          </div>
+          <div className={styles.CastWrapper}>
             <h2 className={styles.Rating}>Cast</h2>
             <div className={styles.CastContainer}>
               {actors}
