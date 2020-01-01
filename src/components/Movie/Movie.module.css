@@ -62,7 +62,7 @@
     "image"
     "image"
     "description"
-    "description-1";
+    "cast";
   }
 }
 
@@ -73,7 +73,7 @@
   'image'
   'image'
   'description'
-  'description-1';
+  'cast';
   grid-gap: 0;
   padding: 0 10%;
  }
