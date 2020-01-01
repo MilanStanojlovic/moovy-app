@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import styles from './Genres.modules.css';
+import styles from './Genres.module.css';
 
 import Genre from '../../components/Genre/Genre';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styles from './Search.modules.css';
+import styles from './Search.module.css';
 import { Link } from 'react-router-dom';
 
 import SearchResult from '../SearchResult/SearchResult';

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SearchResult.modules.css';
+import styles from './SearchResult.module.css';
 
 const SearchResult = (props) => {
   return (

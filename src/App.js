@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './App.modules.css';
+import styles from './App.module.css';
 import { Switch, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';

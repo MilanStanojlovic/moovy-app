@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styles from './Movie.modules.css';
+import styles from './Movie.module.css';
 import Loader from '../Loader/Loader';
 import GenreButton from '../GenreButton/GenreButton';
 import ActorCard from '../ActorCard/ActorCard';

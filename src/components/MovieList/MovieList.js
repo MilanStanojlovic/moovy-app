@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styles from './MovieList.modules.css';
+import styles from './MovieList.module.css';
 import { Link } from 'react-router-dom';
 
 import MovieCard from '../../components/MovieCard/MovieCard';

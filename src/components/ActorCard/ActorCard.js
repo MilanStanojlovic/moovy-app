@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ActorCard.modules.css';
+import styles from './ActorCard.module.css';
 
 const ActorCard = (props) => {
   return(
