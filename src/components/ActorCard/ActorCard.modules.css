@@ -1,0 +1,27 @@
+.Card{
+  border-radius: 5px;
+}
+
+.ImageContainer img {
+  max-width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.CardDescription{
+  padding: 0 10px 0 10px;
+  max-height: 130px;
+  margin-top: 15px;
+}
+
+.Heading{
+  color: #ffffff;
+}
+
+.Role{
+  color: #5B6471;
+}
+
+.Card:hover {
+  background-color: rgb(29, 40, 53);
+}
