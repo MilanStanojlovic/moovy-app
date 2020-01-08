@@ -1,6 +1,7 @@
 .MovieContainer{
-  margin-top: 75px;
-  margin-left: 30px;
+  width: 90%;
+  max-width: 1500px;
+  margin: 75px auto;
   display: grid;
   grid-template-areas: 
   'image description'
@@ -10,6 +11,8 @@
 
 .ImageWrapper{
   grid-area: image;
+  min-width: 300px;
+  max-width: 450px;
 }
 
 .ImageWrapper img {
@@ -19,7 +22,6 @@
 
 .MovieDescription{
   grid-area: description;
-  padding-right: 50px;
 }
 
 .Heading {
@@ -50,9 +52,9 @@
 
 .CastContainer{
   margin-top: 15px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 10px;
 }
 @media(max-width: 1200px){
@@ -68,14 +70,13 @@
 
 @media(max-width: 800px){
  .MovieContainer{
-  margin: 0;
   grid-template-areas: 
   'image'
   'image'
   'description'
   'cast';
   grid-gap: 0;
-  padding: 0 10%;
+  padding: 0 5%;
  }
 
  .MovieDescription{
@@ -84,10 +85,6 @@
 }
 
 @media(max-width: 650px){
-  .MovieContainer{
-    padding: 10px;
-  }
-
   .GenreContainer{
     flex-direction: column;
   }
