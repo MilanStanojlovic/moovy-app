@@ -1,10 +1,10 @@
-#Moovy - Browse Movies
+# Moovy - Browse Movies
 
 <p align="center">
   <img width="800" src="https://github.com/MilanStanojlovic/moovy-app/blob/master/docs/moovy.PNG">
 </p>
 
-###Tools used
+### Tools used
 
 [React](https://reactjs.org/)
 [Axios](https://github.com/axios/axios)
