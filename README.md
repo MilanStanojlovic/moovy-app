@@ -6,9 +6,10 @@
 
 ### Tools used
 
-[React](https://reactjs.org/)
-[Axios](https://github.com/axios/axios)
-[CSS Modules](https://github.com/css-modules/css-modules)
+*[React](https://reactjs.org/)
+*[Axios](https://github.com/axios/axios)
+*[CSS Modules](https://github.com/css-modules/css-modules)
+*[React Router](https://github.com/ReactTraining/react-router)
 
 ### `npm start`
 
