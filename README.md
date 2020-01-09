@@ -11,6 +11,8 @@
 * [CSS Modules](https://github.com/css-modules/css-modules)
 * [React Router](https://github.com/ReactTraining/react-router)
 
+### `npm install`
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
