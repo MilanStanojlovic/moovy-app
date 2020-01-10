@@ -26,6 +26,9 @@
   background-color: rgb(29, 40, 53);
   color: #5B6471;
 }
+.SearchButton:disabled{
+  cursor: not-allowed;
+}
 
 .SearchButton:hover{
   color: #fff;

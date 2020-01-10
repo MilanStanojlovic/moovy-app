@@ -33,10 +33,11 @@ class Search extends Component {
     const { query } = this.state;
     this.setState({ visible: true });
     //console.log(query);
-
-    this.getMovies(query);
-
-    this.setState({ query: '' });
+    if(query){
+      this.getMovies(query);
+  
+      this.setState({ query: '' });
+    }
   }
 
   handleLinkClick = (event) => {
@@ -78,7 +79,7 @@ class Search extends Component {
             value={this.state.query}
             placeholder="Enter moovy title..." />
           <button className={styles.SearchButton}
-            onClick={this.handleButtonClick} >Search</button>
+            onClick={this.handleButtonClick} disabled={!this.state.query}>Search</button>
         </div>
         <div className={styles.SearchResults}>
           {this.state.visible ? result : null}
