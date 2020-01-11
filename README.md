@@ -1,5 +1,7 @@
 # Moovy - Browse Movies
 
+Preview: https://moovy-browser.netlify.com/
+
 <p align="center">
   <img width="800" src="https://github.com/MilanStanojlovic/moovy-app/blob/master/docs/moovy.PNG">
 </p>
